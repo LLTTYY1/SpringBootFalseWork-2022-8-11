@@ -1,0 +1,41 @@
+server:
+  port: 8081
+# e-mail
+spring:
+  #SpringBoot启动动画
+  banner:
+    location: banner.txt
+  # 发送邮件配置
+  mail:
+    host: smtp.qq.com # 配置 smtp 服务器地址
+    port: 25 # smtp 服务器的端口
+    username: 3118206309@qq.com # 配置邮箱用户名(你的邮箱地址)
+    password: ------------ # 配置申请到的授权码(刚让复制的授权码)
+    default-encoding: UTF-8 # 配置邮件编码
+    properties:
+      mail:
+        smtp:
+          socketFactoryClass: javax.net.ssl.SSLSocketFactory # 配饰 SSL 加密工厂
+        debug: true
+      from: ----------- # 发送方邮件，配在yml中可方便更改
+  # DataSource
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/****?useUnicode=true&useSSL=false&characterEncoding=utf8&serverTimezone=Asia/Shanghai
+    username: root
+    password:
+  servlet:
+#    文件的上传
+    multipart:
+      max-file-size: 2MB
+      max-request-size: 5MB
+mybatis-plus:
+  configuration:
+# 日志
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      logic-delete-field: delFlag
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+      id-type: auto
